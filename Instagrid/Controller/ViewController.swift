@@ -103,18 +103,22 @@ class ViewController: UIViewController {
             let size = view.bounds
             
             if size.width > size.height { // Si on est en mode paysage
-                if sender.velocity(in: self.view).x < 0 {
-                    print(sender.velocity(in: self.view).x)
+                if sender.location(in: self.view).x < view.center.x {
+                    print(sender.location(in: self.view).y)
+                    print(view.center.y)
                     userLetGoOfGridView(direction: "left")
                 } else {
-                    gridView.transform = .identity
+                    UIView.animate(withDuration: 0.3) {
+                        self.gridView.transform = .identity
+                    }
                 }
             } else {
-                if sender.velocity(in: self.view).y < 0 {
-                    print(sender.velocity(in: self.view).y)
+                if sender.location(in: self.view).y < view.center.y {
                     userLetGoOfGridView(direction: "up")
                 } else {
-                    gridView.transform = .identity
+                    UIView.animate(withDuration: 0.3) {
+                        self.gridView.transform = .identity
+                    }
                 }
             }
         default:
