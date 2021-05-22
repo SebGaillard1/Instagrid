@@ -41,7 +41,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
                                                                 <state key="normal" image="Plus"/>
                                                                 <connections>
-                                                                    <action selector="buttonsImageGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="us6-G4-e5R"/>
+                                                                    <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="us6-G4-e5R"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -60,7 +60,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
                                                                 <state key="normal" image="Plus"/>
                                                                 <connections>
-                                                                    <action selector="buttonsImageGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vyS-jS-0s2"/>
+                                                                    <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vyS-jS-0s2"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -85,7 +85,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <state key="normal" image="Plus"/>
                                                                 <connections>
-                                                                    <action selector="buttonsImageGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4o-BE-eB7"/>
+                                                                    <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4o-BE-eB7"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -104,7 +104,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
                                                                 <state key="normal" image="Plus"/>
                                                                 <connections>
-                                                                    <action selector="buttonsImageGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8my-db-6kb"/>
+                                                                    <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8my-db-6kb"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -143,19 +143,19 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opP-eT-BB0">
-                                <rect key="frame" x="148.5" y="54" width="117" height="35"/>
+                                <rect key="frame" x="148" y="54" width="118.5" height="39"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g5-fX-Kcq">
-                                <rect key="frame" x="102" y="230.5" width="210" height="30.5"/>
+                                <rect key="frame" x="127" y="232" width="160.5" height="29"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="ogd-59-T9I">
-                                <rect key="frame" x="197.5" y="211.5" width="19" height="14"/>
+                                <rect key="frame" x="197.5" y="213" width="19" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="rUm-Fd-IIP"/>
                                     <constraint firstAttribute="height" constant="14" id="u4m-OS-Qxg"/>
@@ -208,6 +208,10 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqB-G6-CsW">
+                                <rect key="frame" x="132" y="88" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJz-64-W1z">
                                 <rect key="frame" x="0.0" y="131" width="154" height="58"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
@@ -330,10 +334,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="gridView" destination="J7P-p8-b2a" id="sSh-wS-SjP"/>
+                        <outlet property="imageView" destination="iqB-G6-CsW" id="4AK-WV-0FL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-300" y="101"/>
+            <point key="canvasLocation" x="-300" y="100.44642857142857"/>
         </scene>
     </scenes>
     <resources>

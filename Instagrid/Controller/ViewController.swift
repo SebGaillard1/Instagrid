@@ -8,38 +8,48 @@
 import UIKit
 
 class ViewController: UIViewController {
-        
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var gridView: UIView!
+    
+    var button: UIButton?
+            
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func buttonsImageGrid(_ sender: UIButton) {
+    @IBAction func buttonImageGridPressed(_ sender: UIButton) {
         
-        let myPickerController = UIImagePickerController()
-        myPickerController.sourceType = .photoLibrary
-        myPickerController.delegate = self
-        myPickerController.allowsEditing = true
-        //myPickerController.mediaTypes = []
+        let pickerController = UIImagePickerController()
+        pickerController.sourceType = .photoLibrary
+        pickerController.delegate = self
+        pickerController.allowsEditing = true
 
-        self.present(myPickerController, animated: true, completion: nil)
-        //sender.setBackgroundImage(#imageLiteral(resourceName: "Icon"), for: .normal)
-        sender.setImage(nil, for: .normal)
+        self.present(pickerController, animated: true, completion: nil)
+        button = sender
     }
     
-    func getImage(image: UIImage) {
+    func createImageFromGrid() {
         
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let image = renderer.image { ctx in
+            gridView.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        imageView.image = image
     }
 }
+
+
 
 extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
-            getImage(image: image)
-            
-        }
+        guard let image = info[.editedImage] as? UIImage else { return }
+        button?.setBackgroundImage(image, for: .normal)
+        button?.setImage(nil, for: .normal)
+        createImageFromGrid()
         picker.dismiss(animated: true, completion: nil)
     }
     
