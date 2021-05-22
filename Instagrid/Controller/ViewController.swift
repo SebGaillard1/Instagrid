@@ -27,37 +27,6 @@ class ViewController: UIViewController {
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
         gridView.addGestureRecognizer(panGestureRecognizer)
-        
-        //        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
-        //        let size = view.bounds
-        //
-        //        if size.height > size.width {
-        //            swipeGestureRecognizer.direction = .up
-        //        } else {
-        //            swipeGestureRecognizer.direction = .left
-        //        }
-        //
-        //        gridView.addGestureRecognizer(swipeGestureRecognizer)
-        //        gridView.isUserInteractionEnabled = true
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        //        for recognizer in gridView.gestureRecognizers ?? [] {
-        //            gridView.removeGestureRecognizer(recognizer)
-        //        }
-        //
-        //        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
-        //        let size = view.bounds
-        //
-        //        if size.width > size.height {
-        //            swipeGestureRecognizer.direction = .up
-        //        } else {
-        //            swipeGestureRecognizer.direction = .left
-        //        }
-        //
-        //        gridView.addGestureRecognizer(swipeGestureRecognizer)
-        //        gridView.isUserInteractionEnabled = true
     }
     
     @IBAction func buttonImageGridPressed(_ sender: UIButton) {
@@ -126,16 +95,27 @@ class ViewController: UIViewController {
     }
     
     @objc func swipeGridView(_ sender: UIPanGestureRecognizer) {
-                
+        
         switch sender.state {
         case .began, .changed:
             transformGridViewWith(gesture: sender)
         case .cancelled, .ended:
-            if sender.velocity(in: self.view).y < 0 {
-                print(sender.velocity(in: self.view).y)
-                userLetGoOfGridView()
+            let size = view.bounds
+            
+            if size.width > size.height { // Si on est en mode paysage
+                if sender.velocity(in: self.view).x < 0 {
+                    print(sender.velocity(in: self.view).x)
+                    userLetGoOfGridView(direction: "left")
+                } else {
+                    gridView.transform = .identity
+                }
             } else {
-                gridView.transform = .identity
+                if sender.velocity(in: self.view).y < 0 {
+                    print(sender.velocity(in: self.view).y)
+                    userLetGoOfGridView(direction: "up")
+                } else {
+                    gridView.transform = .identity
+                }
             }
         default:
             break
@@ -148,17 +128,17 @@ class ViewController: UIViewController {
         gridView.transform = translationTransform
     }
     
-    func userLetGoOfGridView() {
+    func userLetGoOfGridView(direction: String) {
         
         let screenWidth = UIScreen.main.bounds.width
-        let gridViewHeight = gridView.bounds.height
         var translationTransform: CGAffineTransform
-        // On va devoir check si c'est portrait ou paysage
-        // if questionView.style == .correct {
-        translationTransform = CGAffineTransform(translationX: 0, y: -screenWidth - gridViewHeight)
-        //} else {
-        // translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
-        // }
+
+        if direction == "up" {
+            translationTransform = CGAffineTransform(translationX: 0, y: -screenWidth - gridView.bounds.height)
+        } else {
+            translationTransform = CGAffineTransform(translationX: -screenWidth - gridView.bounds.width, y: 0)
+            print("autre")
+        }
         
         UIView.animate(withDuration: 0.3) {
             self.gridView.transform = translationTransform
