@@ -30,6 +30,16 @@ class ViewController: UIViewController {
         button = sender
     }
     
+    
+    @IBAction func layoutButtonPressed(_ sender: UIButton) {
+        // Clear all other button background
+        // Change disposition
+        sender.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
+    }
+    
+    
+    
+    
     func createImageFromGrid() {
         
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
