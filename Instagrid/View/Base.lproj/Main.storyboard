@@ -40,6 +40,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUA-VK-r4N">
                                                                 <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
                                                                 <state key="normal" image="Plus"/>
+                                                                <connections>
+                                                                    <action selector="buttonsImageGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="us6-G4-e5R"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,6 +59,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZW-3p-Dh5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
                                                                 <state key="normal" image="Plus"/>
+                                                                <connections>
+                                                                    <action selector="buttonsImageGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vyS-jS-0s2"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,6 +84,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <state key="normal" image="Plus"/>
+                                                                <connections>
+                                                                    <action selector="buttonsImageGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4o-BE-eB7"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -94,6 +103,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP4-zl-BsZ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
                                                                 <state key="normal" image="Plus"/>
+                                                                <connections>
+                                                                    <action selector="buttonsImageGrid:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8my-db-6kb"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -131,19 +143,19 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opP-eT-BB0">
-                                <rect key="frame" x="148" y="54" width="118.5" height="39"/>
+                                <rect key="frame" x="148.5" y="54" width="117" height="35"/>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g5-fX-Kcq">
-                                <rect key="frame" x="127" y="232" width="160.5" height="29"/>
+                                <rect key="frame" x="102" y="230.5" width="210" height="30.5"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="ogd-59-T9I">
-                                <rect key="frame" x="197.5" y="213" width="19" height="14"/>
+                                <rect key="frame" x="197.5" y="211.5" width="19" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="rUm-Fd-IIP"/>
                                     <constraint firstAttribute="height" constant="14" id="u4m-OS-Qxg"/>

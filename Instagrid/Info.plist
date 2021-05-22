@@ -62,6 +62,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Merci d&apos;autoriser l&apos;accès pour que l&apos;application fonctionne</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ThirstySoftRegular.otf</string>
