@@ -60,10 +60,11 @@
 		574AC958263DB5A50048276B /* Instagrid */ = {
 			isa = PBXGroup;
 			children = (
+				576799232658DD3A00289D57 /* Model */,
+				576799242658DD4000289D57 /* View */,
+				576799252658DD4700289D57 /* Controller */,
 				574AC959263DB5A50048276B /* AppDelegate.swift */,
 				574AC95B263DB5A50048276B /* SceneDelegate.swift */,
-				574AC95D263DB5A50048276B /* ViewController.swift */,
-				574AC95F263DB5A50048276B /* Main.storyboard */,
 				574AC962263DB5A60048276B /* Assets.xcassets */,
 				574AC964263DB5A60048276B /* LaunchScreen.storyboard */,
 				574AC967263DB5A60048276B /* Info.plist */,
@@ -71,6 +72,29 @@
 				576799212657EFA900289D57 /* Delm-Medium.otf */,
 			);
 			path = Instagrid;
+			sourceTree = "<group>";
+		};
+		576799232658DD3A00289D57 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		576799242658DD4000289D57 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				574AC95F263DB5A50048276B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		576799252658DD4700289D57 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				574AC95D263DB5A50048276B /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

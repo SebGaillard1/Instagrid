@@ -196,14 +196,14 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJz-64-W1z">
-                                <rect key="frame" x="0.0" y="192.66666666666666" width="191" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJz-64-W1z">
+                                <rect key="frame" x="0.0" y="131" width="154" height="58"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="pO8-9f-f8u">
-                                <rect key="frame" x="76" y="173.66666666666666" width="19" height="14"/>
+                                <rect key="frame" x="76" y="112" width="19" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="adD-I0-aFZ"/>
                                     <constraint firstAttribute="height" constant="14" id="p3j-wk-0Nd"/>
@@ -265,14 +265,14 @@
                                 <exclude reference="UCR-c7-JRy"/>
                                 <exclude reference="dqY-ca-7TU"/>
                                 <exclude reference="vaC-Yj-wnW"/>
+                                <exclude reference="Afh-fr-2up"/>
                                 <exclude reference="aZI-YA-sZ9"/>
-                                <exclude reference="7cN-hF-65g"/>
                                 <exclude reference="Dnf-P3-qNR"/>
                                 <exclude reference="Ey9-2Y-k92"/>
                                 <exclude reference="tAm-eS-SHw"/>
-                                <exclude reference="Afh-fr-2up"/>
                                 <exclude reference="PS2-oQ-ViE"/>
                                 <exclude reference="u8w-Qf-wNW"/>
+                                <exclude reference="7cN-hF-65g"/>
                                 <exclude reference="UQR-UI-YIC"/>
                                 <exclude reference="e3u-a1-97c"/>
                                 <exclude reference="eLh-aV-KBW"/>
@@ -293,16 +293,16 @@
                                 <exclude reference="Mfc-qH-UB3"/>
                                 <include reference="aZI-YA-sZ9"/>
                                 <exclude reference="ttS-Wi-D95"/>
-                                <include reference="7cN-hF-65g"/>
-                                <exclude reference="5rp-gf-fch"/>
                                 <include reference="Dnf-P3-qNR"/>
                                 <include reference="Ey9-2Y-k92"/>
                                 <exclude reference="OoS-4F-RfV"/>
                                 <include reference="tAm-eS-SHw"/>
+                                <include reference="7cN-hF-65g"/>
                                 <exclude reference="Pce-7O-Ez3"/>
                                 <include reference="UQR-UI-YIC"/>
                                 <include reference="e3u-a1-97c"/>
                                 <exclude reference="e5D-hT-cbw"/>
+                                <exclude reference="5rp-gf-fch"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -321,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="17.39130434782609" y="92.119565217391312"/>
+            <point key="canvasLocation" x="-300" y="101"/>
         </scene>
     </scenes>
     <resources>
