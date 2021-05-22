@@ -163,10 +163,6 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iqB-G6-CsW">
-                                <rect key="frame" x="132" y="88" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="zwZ-B1-x15">
                                 <rect key="frame" x="20" y="762" width="374" height="80"/>
                                 <subviews>
@@ -332,7 +328,6 @@
                         <outlet property="gridButton3" destination="a8z-Sp-rkP" id="Xow-3n-KLV"/>
                         <outlet property="gridButton4" destination="aP4-zl-BsZ" id="hxq-Ed-fAT"/>
                         <outlet property="gridView" destination="J7P-p8-b2a" id="sSh-wS-SjP"/>
-                        <outlet property="imageView" destination="iqB-G6-CsW" id="4AK-WV-0FL"/>
                         <outlet property="layoutButton1" destination="hgT-hm-E5q" id="LRU-st-Lah"/>
                         <outlet property="layoutButton2" destination="aNO-OX-J33" id="MXN-7i-C2b"/>
                         <outlet property="layoutButton3" destination="A3g-5U-PQo" id="pcH-Zi-pMA"/>

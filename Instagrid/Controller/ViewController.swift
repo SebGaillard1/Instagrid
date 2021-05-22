@@ -18,14 +18,43 @@ class ViewController: UIViewController {
     @IBOutlet weak var gridButton3: UIButton!
     @IBOutlet weak var gridButton4: UIButton!
     
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var gridView: UIView!
     
     var button: UIButton?
-            
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
+        let size = view.bounds
+        
+        if size.height > size.width {
+            swipeGestureRecognizer.direction = .up
+        } else {
+            swipeGestureRecognizer.direction = .left
+        }
+        
+        gridView.addGestureRecognizer(swipeGestureRecognizer)
+        gridView.isUserInteractionEnabled = true
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        for recognizer in gridView.gestureRecognizers ?? [] {
+            gridView.removeGestureRecognizer(recognizer)
+        }
+        
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
+        let size = view.bounds
+        
+        if size.width > size.height {
+            swipeGestureRecognizer.direction = .up
+        } else {
+            swipeGestureRecognizer.direction = .left
+        }
+        
+        gridView.addGestureRecognizer(swipeGestureRecognizer)
+        gridView.isUserInteractionEnabled = true
     }
     
     @IBAction func buttonImageGridPressed(_ sender: UIButton) {
@@ -39,10 +68,10 @@ class ViewController: UIViewController {
         button = sender
     }
     
-    
+    // Clear all other button background
+    // Call function changeLayout with appropriate parameter
     @IBAction func layoutButtonPressed(_ sender: UIButton) {
         
-        // Clear all other button background
         switch sender.title(for: .normal) {
         case "1":
             layoutButton2.setBackgroundImage(nil, for: .normal)
@@ -61,7 +90,6 @@ class ViewController: UIViewController {
         }
         sender.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
     }
-    
     
     func changeLayout(choice: Int) {
         switch choice {
@@ -85,13 +113,17 @@ class ViewController: UIViewController {
         }
     }
     
-    func createImageFromGrid() {
+    func createImageFromGrid() -> UIImage {
         
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
         let image = renderer.image { ctx in
             gridView.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
-        imageView.image = image
+        return image
+    }
+    
+    @objc func swipeGridView(_ sender: UISwipeGestureRecognizer) {
+        print("Gesture fired")
     }
 }
 
@@ -104,7 +136,6 @@ extension ViewController: UIImagePickerControllerDelegate & UINavigationControll
         guard let image = info[.editedImage] as? UIImage else { return }
         button?.setBackgroundImage(image, for: .normal)
         button?.setImage(nil, for: .normal)
-        createImageFromGrid()
         picker.dismiss(animated: true, completion: nil)
     }
     
