@@ -25,36 +25,39 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
-        let size = view.bounds
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
+        gridView.addGestureRecognizer(panGestureRecognizer)
         
-        if size.height > size.width {
-            swipeGestureRecognizer.direction = .up
-        } else {
-            swipeGestureRecognizer.direction = .left
-        }
-        
-        gridView.addGestureRecognizer(swipeGestureRecognizer)
-        gridView.isUserInteractionEnabled = true
+        //        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
+        //        let size = view.bounds
+        //
+        //        if size.height > size.width {
+        //            swipeGestureRecognizer.direction = .up
+        //        } else {
+        //            swipeGestureRecognizer.direction = .left
+        //        }
+        //
+        //        gridView.addGestureRecognizer(swipeGestureRecognizer)
+        //        gridView.isUserInteractionEnabled = true
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        for recognizer in gridView.gestureRecognizers ?? [] {
-            gridView.removeGestureRecognizer(recognizer)
-        }
-        
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
-        let size = view.bounds
-        
-        if size.width > size.height {
-            swipeGestureRecognizer.direction = .up
-        } else {
-            swipeGestureRecognizer.direction = .left
-        }
-        
-        gridView.addGestureRecognizer(swipeGestureRecognizer)
-        gridView.isUserInteractionEnabled = true
+        //        for recognizer in gridView.gestureRecognizers ?? [] {
+        //            gridView.removeGestureRecognizer(recognizer)
+        //        }
+        //
+        //        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
+        //        let size = view.bounds
+        //
+        //        if size.width > size.height {
+        //            swipeGestureRecognizer.direction = .up
+        //        } else {
+        //            swipeGestureRecognizer.direction = .left
+        //        }
+        //
+        //        gridView.addGestureRecognizer(swipeGestureRecognizer)
+        //        gridView.isUserInteractionEnabled = true
     }
     
     @IBAction func buttonImageGridPressed(_ sender: UIButton) {
@@ -63,7 +66,7 @@ class ViewController: UIViewController {
         pickerController.sourceType = .photoLibrary
         pickerController.delegate = self
         pickerController.allowsEditing = true
-
+        
         self.present(pickerController, animated: true, completion: nil)
         button = sender
     }
@@ -115,35 +118,80 @@ class ViewController: UIViewController {
     
     func createImageFromGrid() -> UIImage {
         
-        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
         let image = renderer.image { ctx in
-            gridView.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+            gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
         }
         return image
     }
     
-    @objc func swipeGridView(_ sender: UISwipeGestureRecognizer) {
-        print("Gesture fired")
-        transformGridViewWith(gesture: sender)
+    @objc func swipeGridView(_ sender: UIPanGestureRecognizer) {
+                
         switch sender.state {
         case .began, .changed:
             transformGridViewWith(gesture: sender)
         case .cancelled, .ended:
-            userWantToShare()
+            if sender.velocity(in: self.view).y < 0 {
+                print(sender.velocity(in: self.view).y)
+                userLetGoOfGridView()
+            } else {
+                gridView.transform = .identity
+            }
         default:
             break
         }
     }
     
-    func transformGridViewWith(gesture: UISwipeGestureRecognizer) {
-        let translation = gesture.location(in: gridView)
+    func transformGridViewWith(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: gridView)
         let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
         gridView.transform = translationTransform
     }
     
-    func userWantToShare() {
+    func userLetGoOfGridView() {
         
+        let screenWidth = UIScreen.main.bounds.width
+        let gridViewHeight = gridView.bounds.height
+        var translationTransform: CGAffineTransform
+        // On va devoir check si c'est portrait ou paysage
+        // if questionView.style == .correct {
+        translationTransform = CGAffineTransform(translationX: 0, y: -screenWidth - gridViewHeight)
+        //} else {
+        // translationTransform = CGAffineTransform(translationX: -screenWidth, y: 0)
+        // }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.gridView.transform = translationTransform
+        } completion: { (success) in
+            if success {
+                self.presentShareSheet()
+            }
+        }
     }
+    
+    func presentShareSheet() {
+        
+        let image = createImageFromGrid()
+        let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        ac.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if !completed {
+                self.gridViewReturnToInitialPos()
+                return
+            }
+            self.gridViewReturnToInitialPos()
+        }
+        
+        present(ac, animated: true)
+    }
+    
+    func gridViewReturnToInitialPos() {
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.gridView.transform = .identity
+        }, completion: nil)
+    }
+    
 }
 
 
