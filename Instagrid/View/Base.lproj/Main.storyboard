@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -34,88 +33,44 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="v4r-Gz-dK9">
                                                 <rect key="frame" x="0.0" y="0.0" width="324" height="154.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lTC-Ps-Suw">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUA-VK-r4N">
                                                         <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUA-VK-r4N">
-                                                                <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
-                                                                <state key="normal" image="Plus"/>
-                                                                <connections>
-                                                                    <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="us6-G4-e5R"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="QUA-VK-r4N" firstAttribute="top" secondItem="lTC-Ps-Suw" secondAttribute="top" id="JLH-DO-k1h"/>
-                                                            <constraint firstAttribute="bottom" secondItem="QUA-VK-r4N" secondAttribute="bottom" id="L0t-e8-2Xr"/>
-                                                            <constraint firstItem="QUA-VK-r4N" firstAttribute="leading" secondItem="lTC-Ps-Suw" secondAttribute="leading" id="NGx-Ta-uwF"/>
-                                                            <constraint firstAttribute="trailing" secondItem="QUA-VK-r4N" secondAttribute="trailing" id="OOZ-VO-yCv"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8E-WG-2Pb">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="us6-G4-e5R"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZW-3p-Dh5">
                                                         <rect key="frame" x="169.5" y="0.0" width="154.5" height="154.5"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZW-3p-Dh5">
-                                                                <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
-                                                                <state key="normal" image="Plus"/>
-                                                                <connections>
-                                                                    <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vyS-jS-0s2"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="BZW-3p-Dh5" secondAttribute="trailing" id="A0W-fT-QaO"/>
-                                                            <constraint firstItem="BZW-3p-Dh5" firstAttribute="top" secondItem="P8E-WG-2Pb" secondAttribute="top" id="Afd-WI-E4e"/>
-                                                            <constraint firstAttribute="bottom" secondItem="BZW-3p-Dh5" secondAttribute="bottom" id="MFO-kE-trx"/>
-                                                            <constraint firstItem="BZW-3p-Dh5" firstAttribute="leading" secondItem="P8E-WG-2Pb" secondAttribute="leading" id="t96-3C-bdV"/>
-                                                        </constraints>
-                                                    </view>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vyS-jS-0s2"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="iS2-5G-EXD">
                                                 <rect key="frame" x="0.0" y="169.5" width="324" height="154.5"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMj-jf-dLM">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8z-Sp-rkP">
                                                         <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8z-Sp-rkP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                <state key="normal" image="Plus"/>
-                                                                <connections>
-                                                                    <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4o-BE-eB7"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="a8z-Sp-rkP" firstAttribute="leading" secondItem="dMj-jf-dLM" secondAttribute="leading" id="Wvr-4W-dp8"/>
-                                                            <constraint firstAttribute="bottom" secondItem="a8z-Sp-rkP" secondAttribute="bottom" id="iZ1-nr-9Vm"/>
-                                                            <constraint firstAttribute="trailing" secondItem="a8z-Sp-rkP" secondAttribute="trailing" id="mBN-Nj-LvS"/>
-                                                            <constraint firstItem="a8z-Sp-rkP" firstAttribute="top" secondItem="dMj-jf-dLM" secondAttribute="top" id="ndM-v7-Kel"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgd-V7-c2J">
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k4o-BE-eB7"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP4-zl-BsZ">
                                                         <rect key="frame" x="169.5" y="0.0" width="154.5" height="154.5"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP4-zl-BsZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="154.5" height="154.5"/>
-                                                                <state key="normal" image="Plus"/>
-                                                                <connections>
-                                                                    <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8my-db-6kb"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="aP4-zl-BsZ" secondAttribute="bottom" id="3lG-T4-Emc"/>
-                                                            <constraint firstItem="aP4-zl-BsZ" firstAttribute="top" secondItem="Hgd-V7-c2J" secondAttribute="top" id="IsN-7O-R2F"/>
-                                                            <constraint firstItem="aP4-zl-BsZ" firstAttribute="leading" secondItem="Hgd-V7-c2J" secondAttribute="leading" id="NW5-Rf-0nl"/>
-                                                            <constraint firstAttribute="trailing" secondItem="aP4-zl-BsZ" secondAttribute="trailing" id="vSM-Lj-12B"/>
-                                                        </constraints>
-                                                    </view>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" image="Plus"/>
+                                                        <connections>
+                                                            <action selector="buttonImageGridPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8my-db-6kb"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -213,13 +168,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJz-64-W1z">
-                                <rect key="frame" x="0.0" y="131" width="154" height="58"/>
+                                <rect key="frame" x="44" y="192.5" width="242" height="29"/>
                                 <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="pO8-9f-f8u">
-                                <rect key="frame" x="76" y="112" width="19" height="14"/>
+                                <rect key="frame" x="120" y="173.5" width="19" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="19" id="adD-I0-aFZ"/>
                                     <constraint firstAttribute="height" constant="14" id="p3j-wk-0Nd"/>
@@ -351,8 +306,5 @@
         <image name="Layout 2" width="27" height="27"/>
         <image name="Layout 3" width="27" height="27"/>
         <image name="Plus" width="13.5" height="13.5"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
