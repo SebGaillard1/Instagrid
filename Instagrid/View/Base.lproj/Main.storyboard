@@ -172,18 +172,27 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-hm-E5q">
                                         <rect key="frame" x="0.0" y="0.0" width="106.5" height="80"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="layoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sEs-Y5-93K"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNO-OX-J33">
                                         <rect key="frame" x="133.5" y="0.0" width="107" height="80"/>
+                                        <state key="normal" title="2">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="layoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F8g-Br-hSR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3g-5U-PQo">
                                         <rect key="frame" x="267.5" y="0.0" width="106.5" height="80"/>
+                                        <state key="normal" title="3">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="layoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RkG-5h-pXI"/>
                                         </connections>
@@ -264,17 +273,17 @@
                                 <exclude reference="UCR-c7-JRy"/>
                                 <exclude reference="dqY-ca-7TU"/>
                                 <exclude reference="vaC-Yj-wnW"/>
-                                <exclude reference="aZI-YA-sZ9"/>
                                 <exclude reference="Afh-fr-2up"/>
                                 <exclude reference="PS2-oQ-ViE"/>
+                                <exclude reference="aZI-YA-sZ9"/>
                                 <exclude reference="7cN-hF-65g"/>
                                 <exclude reference="UQR-UI-YIC"/>
                                 <exclude reference="e3u-a1-97c"/>
                                 <exclude reference="eLh-aV-KBW"/>
-                                <exclude reference="u8w-Qf-wNW"/>
                                 <exclude reference="Dnf-P3-qNR"/>
                                 <exclude reference="Ey9-2Y-k92"/>
                                 <exclude reference="tAm-eS-SHw"/>
+                                <exclude reference="u8w-Qf-wNW"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -320,6 +329,9 @@
                     <connections>
                         <outlet property="gridView" destination="J7P-p8-b2a" id="sSh-wS-SjP"/>
                         <outlet property="imageView" destination="iqB-G6-CsW" id="4AK-WV-0FL"/>
+                        <outlet property="layoutButton1" destination="hgT-hm-E5q" id="LRU-st-Lah"/>
+                        <outlet property="layoutButton2" destination="aNO-OX-J33" id="MXN-7i-C2b"/>
+                        <outlet property="layoutButton3" destination="A3g-5U-PQo" id="pcH-Zi-pMA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
