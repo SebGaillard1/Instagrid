@@ -327,6 +327,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="gridButton1" destination="QUA-VK-r4N" id="y9O-tS-hSe"/>
+                        <outlet property="gridButton2" destination="BZW-3p-Dh5" id="AJn-1L-dCn"/>
+                        <outlet property="gridButton3" destination="a8z-Sp-rkP" id="Xow-3n-KLV"/>
+                        <outlet property="gridButton4" destination="aP4-zl-BsZ" id="hxq-Ed-fAT"/>
                         <outlet property="gridView" destination="J7P-p8-b2a" id="sSh-wS-SjP"/>
                         <outlet property="imageView" destination="iqB-G6-CsW" id="4AK-WV-0FL"/>
                         <outlet property="layoutButton1" destination="hgT-hm-E5q" id="LRU-st-Lah"/>

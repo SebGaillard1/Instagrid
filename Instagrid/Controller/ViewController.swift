@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var layoutButton2: UIButton!
     @IBOutlet weak var layoutButton3: UIButton!
     
+    @IBOutlet weak var gridButton1: UIButton!
+    @IBOutlet weak var gridButton2: UIButton!
+    @IBOutlet weak var gridButton3: UIButton!
+    @IBOutlet weak var gridButton4: UIButton!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var gridView: UIView!
@@ -43,15 +47,15 @@ class ViewController: UIViewController {
         case "1":
             layoutButton2.setBackgroundImage(nil, for: .normal)
             layoutButton3.setBackgroundImage(nil, for: .normal)
-            // changeLayout(choice: 1)
+            changeLayout(choice: 1)
         case "2":
             layoutButton1.setBackgroundImage(nil, for: .normal)
             layoutButton3.setBackgroundImage(nil, for: .normal)
-            // changeLayout(choice: 2)
+            changeLayout(choice: 2)
         case "3":
             layoutButton1.setBackgroundImage(nil, for: .normal)
             layoutButton2.setBackgroundImage(nil, for: .normal)
-            // changeLayout(choice: 3)
+            changeLayout(choice: 3)
         default:
             break
         }
@@ -59,7 +63,27 @@ class ViewController: UIViewController {
     }
     
     
-    
+    func changeLayout(choice: Int) {
+        switch choice {
+        case 1:
+            gridButton1.isHidden = false
+            gridButton2.isHidden = true
+            gridButton3.isHidden = false
+            gridButton4.isHidden = false
+        case 2:
+            gridButton1.isHidden = false
+            gridButton2.isHidden = false
+            gridButton3.isHidden = false
+            gridButton4.isHidden = true
+        case 3:
+            gridButton1.isHidden = false
+            gridButton2.isHidden = false
+            gridButton3.isHidden = false
+            gridButton4.isHidden = false
+        default:
+            break
+        }
+    }
     
     func createImageFromGrid() {
         
