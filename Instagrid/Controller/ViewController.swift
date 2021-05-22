@@ -124,6 +124,25 @@ class ViewController: UIViewController {
     
     @objc func swipeGridView(_ sender: UISwipeGestureRecognizer) {
         print("Gesture fired")
+        transformGridViewWith(gesture: sender)
+        switch sender.state {
+        case .began, .changed:
+            transformGridViewWith(gesture: sender)
+        case .cancelled, .ended:
+            userWantToShare()
+        default:
+            break
+        }
+    }
+    
+    func transformGridViewWith(gesture: UISwipeGestureRecognizer) {
+        let translation = gesture.location(in: gridView)
+        let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
+        gridView.transform = translationTransform
+    }
+    
+    func userWantToShare() {
+        
     }
 }
 
