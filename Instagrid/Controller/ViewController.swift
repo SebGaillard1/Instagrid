@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        layoutButton3.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
+        
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
         gridView.addGestureRecognizer(panGestureRecognizer)
     }
@@ -139,7 +141,6 @@ class ViewController: UIViewController {
             translationTransform = CGAffineTransform(translationX: 0, y: -screenWidth - gridView.bounds.height)
         } else {
             translationTransform = CGAffineTransform(translationX: -screenWidth - gridView.bounds.width, y: 0)
-            print("autre")
         }
         
         UIView.animate(withDuration: 0.3) {
