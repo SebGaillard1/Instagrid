@@ -8,15 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // Made Change
     
     @IBOutlet weak var layoutButton1: UIButton!
     @IBOutlet weak var layoutButton2: UIButton!
     @IBOutlet weak var layoutButton3: UIButton!
     
-    @IBOutlet weak var gridButton1: UIButton!
-    @IBOutlet weak var gridButton2: UIButton!
-    @IBOutlet weak var gridButton3: UIButton!
-    @IBOutlet weak var gridButton4: UIButton!
+    @IBOutlet var gridButtons: [UIButton]!
     
     @IBOutlet weak var gridView: UIView!
     
@@ -48,40 +46,46 @@ class ViewController: UIViewController {
         
         switch sender.tag {
         case 1:
-            layoutButton2.setBackgroundImage(nil, for: .normal)
-            layoutButton3.setBackgroundImage(nil, for: .normal)
+            //layoutButton2.setBackgroundImage(nil, for: .normal)
+            //layoutButton3.setBackgroundImage(nil, for: .normal)
             changeLayout(choice: 1)
         case 2:
-            layoutButton1.setBackgroundImage(nil, for: .normal)
-            layoutButton3.setBackgroundImage(nil, for: .normal)
+            //layoutButton1.setBackgroundImage(nil, for: .normal)
+            //layoutButton3.setBackgroundImage(nil, for: .normal)
             changeLayout(choice: 2)
         case 3:
-            layoutButton1.setBackgroundImage(nil, for: .normal)
-            layoutButton2.setBackgroundImage(nil, for: .normal)
+            //layoutButton1.setBackgroundImage(nil, for: .normal)
+            //layoutButton2.setBackgroundImage(nil, for: .normal)
             changeLayout(choice: 3)
         default:
             break
         }
-        sender.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
+        sender.isSelected = true
+        //sender.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
     }
     
     func changeLayout(choice: Int) {
         switch choice {
         case 1:
-            gridButton1.isHidden = false
-            gridButton2.isHidden = true
-            gridButton3.isHidden = false
-            gridButton4.isHidden = false
+            for button in gridButtons {
+                if button.tag == 2 {
+                    button.isHidden = true
+                } else {
+                    button.isHidden = false
+                }
+            }
         case 2:
-            gridButton1.isHidden = false
-            gridButton2.isHidden = false
-            gridButton3.isHidden = false
-            gridButton4.isHidden = true
+            for button in gridButtons {
+                if button.tag == 4 {
+                    button.isHidden = true
+                } else {
+                    button.isHidden = false
+                }
+            }
         case 3:
-            gridButton1.isHidden = false
-            gridButton2.isHidden = false
-            gridButton3.isHidden = false
-            gridButton4.isHidden = false
+            for button in gridButtons {
+                button.isHidden = false
+            }
         default:
             break
         }
