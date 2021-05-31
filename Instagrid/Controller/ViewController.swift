@@ -46,16 +46,16 @@ class ViewController: UIViewController {
     // Call function changeLayout with appropriate parameter
     @IBAction func layoutButtonPressed(_ sender: UIButton) {
         
-        switch sender.title(for: .normal) {
-        case "1":
+        switch sender.tag {
+        case 1:
             layoutButton2.setBackgroundImage(nil, for: .normal)
             layoutButton3.setBackgroundImage(nil, for: .normal)
             changeLayout(choice: 1)
-        case "2":
+        case 2:
             layoutButton1.setBackgroundImage(nil, for: .normal)
             layoutButton3.setBackgroundImage(nil, for: .normal)
             changeLayout(choice: 2)
-        case "3":
+        case 3:
             layoutButton1.setBackgroundImage(nil, for: .normal)
             layoutButton2.setBackgroundImage(nil, for: .normal)
             changeLayout(choice: 3)
