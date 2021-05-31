@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="338" width="30" height="220.33333333333337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="pO8-9f-f8u">
-                                        <rect key="frame" x="5.6666666666666714" y="0.0" width="19" height="14"/>
+                                        <rect key="frame" x="5.6666666666666679" y="0.0" width="19" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="XSr-YM-urN"/>
                                             <constraint firstAttribute="width" constant="19" id="wUx-Qb-AUG"/>
@@ -50,7 +50,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" hidden="YES"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B7X-2Z-rjK">
-                                <rect key="frame" x="127" y="213" width="160.33333333333337" height="48"/>
+                                <rect key="frame" x="127.00000000000001" y="213" width="160.33333333333337" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="ogd-59-T9I">
                                         <rect key="frame" x="70.666666666666657" y="0.0" width="19" height="14"/>
@@ -80,8 +80,8 @@
                                 </subviews>
                                 <variation key="heightClass=compact" hidden="YES"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="3DR-Zy-FQb">
-                                <rect key="frame" x="47" y="772" width="320" height="80"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="3DR-Zy-FQb">
+                                <rect key="frame" x="52" y="772" width="310" height="80"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-hm-E5q">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -120,7 +120,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNO-OX-J33">
-                                        <rect key="frame" x="120" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="115" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="5iB-vY-jsu"/>
                                             <constraint firstAttribute="height" constant="80" id="JIK-Tr-SwM"/>
@@ -156,7 +156,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3g-5U-PQo">
-                                        <rect key="frame" x="240" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="230" y="0.0" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="3aV-cy-h6q"/>
                                             <constraint firstAttribute="height" constant="80" id="CBV-wb-KSK"/>
@@ -324,11 +324,11 @@
                                 <exclude reference="aZI-YA-sZ9"/>
                                 <exclude reference="foY-78-G0G"/>
                                 <exclude reference="lga-In-L0F"/>
+                                <exclude reference="hpX-Rk-3Qv"/>
                                 <exclude reference="7cN-hF-65g"/>
                                 <exclude reference="UQR-UI-YIC"/>
                                 <exclude reference="bIr-Sn-8sy"/>
                                 <exclude reference="p0f-0t-Qxg"/>
-                                <exclude reference="hpX-Rk-3Qv"/>
                                 <exclude reference="EZF-Z3-RhC"/>
                                 <exclude reference="OZV-1x-8Ix"/>
                                 <exclude reference="l4A-Pe-sDq"/>
@@ -342,6 +342,7 @@
                                 <exclude reference="Mfc-qH-UB3"/>
                                 <exclude reference="aZI-YA-sZ9"/>
                                 <include reference="foY-78-G0G"/>
+                                <include reference="hpX-Rk-3Qv"/>
                                 <exclude reference="7cN-hF-65g"/>
                                 <exclude reference="Pce-7O-Ez3"/>
                                 <exclude reference="QKn-35-TQ9"/>
@@ -350,7 +351,6 @@
                                 <include reference="bIr-Sn-8sy"/>
                                 <exclude reference="e5D-hT-cbw"/>
                                 <include reference="p0f-0t-Qxg"/>
-                                <include reference="hpX-Rk-3Qv"/>
                                 <exclude reference="EZF-Z3-RhC"/>
                                 <include reference="OZV-1x-8Ix"/>
                                 <exclude reference="sqL-oO-1bV"/>
