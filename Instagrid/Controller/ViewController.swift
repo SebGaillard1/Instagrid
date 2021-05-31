@@ -143,46 +143,7 @@ class ViewController: UIViewController {
             break
         }
     }
-    
-    func createImageFromGrid() -> UIImage {
         
-        let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
-        let image = renderer.image { ctx in
-            gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
-        }
-        return image
-    }
-    
-    @objc func panOnGridView(_ sender: UIPanGestureRecognizer) {
-        
-        switch sender.state {
-        case .began, .changed:
-            transformGridViewWith(gesture: sender)
-        case .cancelled, .ended:
-            let size = view.bounds
-            
-            if size.width > size.height { // Si on est en mode paysage
-                if sender.location(in: self.view).x < view.center.x - 50 {
-                    userLetGoOfGridView(direction: "left")
-                } else {
-                    UIView.animate(withDuration: 0.3) {
-                        self.gridView.transform = .identity
-                    }
-                }
-            } else {
-                if sender.location(in: self.view).y < view.center.y - 50 {
-                    userLetGoOfGridView(direction: "up")
-                } else {
-                    UIView.animate(withDuration: 0.3) {
-                        self.gridView.transform = .identity
-                    }
-                }
-            }
-        default:
-            break
-        }
-    }
-    
     @objc func swipeOnShareStackView(_ sender: UISwipeGestureRecognizer) {
         print("Gesture fired")
         switch sender.state {
@@ -195,18 +156,48 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func panOnGridView(_ sender: UIPanGestureRecognizer) {
+        
+        switch sender.state {
+        case .began, .changed:
+            transformGridViewWith(gesture: sender)
+        case .cancelled, .ended:
+            let size = view.bounds
+            
+            if size.width > size.height { // Si on est en mode paysage
+                if sender.location(in: self.view).x < view.center.x - 50 {
+                    userLetGoOfGridView(direction: .left)
+                } else {
+                    UIView.animate(withDuration: 0.3) {
+                        self.gridView.transform = .identity
+                    }
+                }
+            } else {
+                if sender.location(in: self.view).y < view.center.y - 50 {
+                    userLetGoOfGridView(direction: .up)
+                } else {
+                    UIView.animate(withDuration: 0.3) {
+                        self.gridView.transform = .identity
+                    }
+                }
+            }
+        default:
+            break
+        }
+    }
+    
     func transformGridViewWith(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: gridView)
         let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
         gridView.transform = translationTransform
     }
     
-    func userLetGoOfGridView(direction: String) {
+    func userLetGoOfGridView(direction: direction) {
         
         let screenWidth = UIScreen.main.bounds.width
         var translationTransform: CGAffineTransform
         
-        if direction == "up" {
+        if direction == .up {
             translationTransform = CGAffineTransform(translationX: 0, y: -screenWidth - gridView.bounds.height)
         } else {
             translationTransform = CGAffineTransform(translationX: -screenWidth - gridView.bounds.width, y: 0)
@@ -221,6 +212,13 @@ class ViewController: UIViewController {
         }
     }
     
+    func gridViewReturnToInitialPos() {
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.gridView.transform = .identity
+        }, completion: nil)
+    }
+        
     func presentShareSheet() {
         
         let image = createImageFromGrid()
@@ -237,13 +235,18 @@ class ViewController: UIViewController {
         present(ac, animated: true)
     }
     
-    func gridViewReturnToInitialPos() {
+    func createImageFromGrid() -> UIImage {
         
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
-            self.gridView.transform = .identity
-        }, completion: nil)
+        let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
+        let image = renderer.image { ctx in
+            gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
+        }
+        return image
     }
-    
+}
+
+enum direction {
+    case left, up
 }
 
 //MARK: - Extensions
