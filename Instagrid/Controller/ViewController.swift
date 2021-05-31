@@ -10,10 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     // Made Change
     
-    @IBOutlet weak var layoutButton1: UIButton!
-    @IBOutlet weak var layoutButton2: UIButton!
-    @IBOutlet weak var layoutButton3: UIButton!
-    
+    @IBOutlet var layoutSelectionButtons: [UIButton]!
     @IBOutlet var gridButtons: [UIButton]!
     
     @IBOutlet weak var gridView: UIView!
@@ -60,8 +57,25 @@ class ViewController: UIViewController {
         default:
             break
         }
-        sender.isSelected = true
+        for button in layoutSelectionButtons {
+            if sender.tag == button.tag {
+                button.isSelected = true
+                setImageButton(button: button)
+            } else {
+                button.isSelected = false
+            }
+        }
         //sender.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
+    }
+    
+    func setImageButton(button: UIButton) {
+        let image = button.image(for: .selected)!
+        let targetSize = CGSize(width: 80, height: 80)
+
+        let scaledImage = image.scalePreservingAspectRatio(
+            targetSize: targetSize
+        )
+        button.setImage(scaledImage, for: .selected)
     }
     
     func changeLayout(choice: Int) {
@@ -195,6 +209,37 @@ extension ViewController: UIImagePickerControllerDelegate & UINavigationControll
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+extension UIImage {
+    func scalePreservingAspectRatio(targetSize: CGSize) -> UIImage {
+        // Determine the scale factor that preserves aspect ratio
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        let scaleFactor = min(widthRatio, heightRatio)
+        
+        // Compute the new image size that preserves aspect ratio
+        let scaledImageSize = CGSize(
+            width: size.width * scaleFactor,
+            height: size.height * scaleFactor
+        )
+
+        // Draw and return the resized UIImage
+        let renderer = UIGraphicsImageRenderer(
+            size: scaledImageSize
+        )
+
+        let scaledImage = renderer.image { _ in
+            self.draw(in: CGRect(
+                origin: .zero,
+                size: scaledImageSize
+            ))
+        }
+        
+        return scaledImage
     }
 }
 

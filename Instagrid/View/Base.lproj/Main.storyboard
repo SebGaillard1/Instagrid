@@ -333,13 +333,13 @@
                     </view>
                     <connections>
                         <outlet property="gridView" destination="J7P-p8-b2a" id="sSh-wS-SjP"/>
-                        <outlet property="layoutButton1" destination="hgT-hm-E5q" id="LRU-st-Lah"/>
-                        <outlet property="layoutButton2" destination="aNO-OX-J33" id="MXN-7i-C2b"/>
-                        <outlet property="layoutButton3" destination="A3g-5U-PQo" id="pcH-Zi-pMA"/>
                         <outletCollection property="gridButtons" destination="QUA-VK-r4N" collectionClass="NSMutableArray" id="O5C-OT-3e2"/>
                         <outletCollection property="gridButtons" destination="BZW-3p-Dh5" collectionClass="NSMutableArray" id="zD9-AE-jvt"/>
                         <outletCollection property="gridButtons" destination="a8z-Sp-rkP" collectionClass="NSMutableArray" id="IuC-nu-KG5"/>
                         <outletCollection property="gridButtons" destination="aP4-zl-BsZ" collectionClass="NSMutableArray" id="zkb-F9-GyF"/>
+                        <outletCollection property="layoutSelectionButtons" destination="hgT-hm-E5q" collectionClass="NSMutableArray" id="Gh5-XH-8HQ"/>
+                        <outletCollection property="layoutSelectionButtons" destination="aNO-OX-J33" collectionClass="NSMutableArray" id="aib-5U-src"/>
+                        <outletCollection property="layoutSelectionButtons" destination="A3g-5U-PQo" collectionClass="NSMutableArray" id="dum-O0-sRu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
