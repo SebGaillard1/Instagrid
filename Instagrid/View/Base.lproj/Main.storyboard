@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="338" width="30" height="220.33333333333337"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="pO8-9f-f8u">
-                                        <rect key="frame" x="5.6666666666666679" y="0.0" width="19" height="14"/>
+                                        <rect key="frame" x="5.6666666666666714" y="0.0" width="19" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="XSr-YM-urN"/>
                                             <constraint firstAttribute="width" constant="19" id="wUx-Qb-AUG"/>
@@ -50,7 +50,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" hidden="YES"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B7X-2Z-rjK">
-                                <rect key="frame" x="127.00000000000001" y="213" width="160.33333333333337" height="48"/>
+                                <rect key="frame" x="127" y="213" width="160.33333333333337" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="ogd-59-T9I">
                                         <rect key="frame" x="70.666666666666657" y="0.0" width="19" height="14"/>
@@ -86,35 +86,13 @@
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-hm-E5q">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="AjU-zH-9sX"/>
-                                            <constraint firstAttribute="width" constant="80" id="DXG-OX-33i"/>
-                                            <constraint firstAttribute="height" constant="80" id="eU6-FU-iso"/>
-                                            <constraint firstAttribute="width" constant="80" id="qNs-VW-TVS"/>
+                                            <constraint firstAttribute="height" constant="80" id="4xd-Uu-iU5"/>
+                                            <constraint firstAttribute="width" constant="80" id="nvT-cU-P9C"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 1">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected" image="Selected" backgroundImage="Layout 1"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="AjU-zH-9sX"/>
-                                                <exclude reference="DXG-OX-33i"/>
-                                                <exclude reference="eU6-FU-iso"/>
-                                                <exclude reference="qNs-VW-TVS"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="DXG-OX-33i"/>
-                                                <include reference="eU6-FU-iso"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="AjU-zH-9sX"/>
-                                                <include reference="qNs-VW-TVS"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="layoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sEs-Y5-93K"/>
                                         </connections>
@@ -122,35 +100,13 @@
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNO-OX-J33">
                                         <rect key="frame" x="115" y="0.0" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="5iB-vY-jsu"/>
-                                            <constraint firstAttribute="height" constant="80" id="JIK-Tr-SwM"/>
-                                            <constraint firstAttribute="width" constant="80" id="Wit-iG-gl2"/>
-                                            <constraint firstAttribute="height" constant="80" id="r0s-xz-Gyp"/>
+                                            <constraint firstAttribute="width" constant="80" id="NWy-vB-BEE"/>
+                                            <constraint firstAttribute="height" constant="80" id="aFs-Ub-uXl"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 2">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected" image="Selected" backgroundImage="Layout 2"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="5iB-vY-jsu"/>
-                                                <exclude reference="JIK-Tr-SwM"/>
-                                                <exclude reference="Wit-iG-gl2"/>
-                                                <exclude reference="r0s-xz-Gyp"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="JIK-Tr-SwM"/>
-                                                <include reference="Wit-iG-gl2"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="5iB-vY-jsu"/>
-                                                <include reference="r0s-xz-Gyp"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="layoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F8g-Br-hSR"/>
                                         </connections>
@@ -158,35 +114,13 @@
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3g-5U-PQo">
                                         <rect key="frame" x="230" y="0.0" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="3aV-cy-h6q"/>
-                                            <constraint firstAttribute="height" constant="80" id="CBV-wb-KSK"/>
-                                            <constraint firstAttribute="height" constant="80" id="Gbk-yU-4Lo"/>
-                                            <constraint firstAttribute="width" constant="80" id="KNX-Gl-c1W"/>
+                                            <constraint firstAttribute="width" constant="80" id="EA2-Li-ZNX"/>
+                                            <constraint firstAttribute="height" constant="80" id="yh9-eu-sRq"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="Layout 3">
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <state key="selected" image="Selected" backgroundImage="Layout 3"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="3aV-cy-h6q"/>
-                                                <exclude reference="CBV-wb-KSK"/>
-                                                <exclude reference="Gbk-yU-4Lo"/>
-                                                <exclude reference="KNX-Gl-c1W"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="CBV-wb-KSK"/>
-                                                <include reference="KNX-Gl-c1W"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="3aV-cy-h6q"/>
-                                                <include reference="Gbk-yU-4Lo"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <action selector="layoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RkG-5h-pXI"/>
                                         </connections>

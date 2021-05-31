@@ -31,45 +31,32 @@ class ViewController: UIViewController {
             }
         }
         
-        addSwipeGestureRecognizer()
-        
+        addSwipeGestureRecognizer(viewSize: view.bounds.size)
     }
     
-    func addSwipeGestureRecognizer() {
+    func addSwipeGestureRecognizer(viewSize: CGSize) {
         
         let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOnShareStackView(_:)))
-        let size = view.bounds
+        let size = viewSize
         
         if size.height > size.width {
+            for recognizer in leftToShare.gestureRecognizers ?? [] {
+                leftToShare.removeGestureRecognizer(recognizer)
+            }
             swipeGestureRecognizer.direction = .up
             upToShare.addGestureRecognizer(swipeGestureRecognizer)
         } else {
+            for recognizer in upToShare.gestureRecognizers ?? [] {
+                upToShare.removeGestureRecognizer(recognizer)
+            }
             swipeGestureRecognizer.direction = .left
             leftToShare.addGestureRecognizer(swipeGestureRecognizer)
         }
-        
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
-        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOnShareStackView(_:)))
-        let size = view.bounds
-        
-        if size.height > size.width {
-            for recognizer in upToShare.gestureRecognizers ?? [] {
-                 upToShare.removeGestureRecognizer(recognizer)
-                swipeGestureRecognizer.direction = .left
-                leftToShare.addGestureRecognizer(swipeGestureRecognizer)
-             }
-        } else {
-            for recognizer in leftToShare.gestureRecognizers ?? [] {
-                 leftToShare.removeGestureRecognizer(recognizer)
-                swipeGestureRecognizer.direction = .up
-                upToShare.addGestureRecognizer(swipeGestureRecognizer)
-             }
-        }
+        addSwipeGestureRecognizer(viewSize: size)
     }
-    
     
     @IBAction func buttonImageGridPressed(_ sender: UIButton) {
         
@@ -109,7 +96,7 @@ class ViewController: UIViewController {
     
     func setImageButton(button: UIButton) {
         let image = button.image(for: .selected)!
-        let targetSize = CGSize(width: 80, height: 80)
+        let targetSize = CGSize(width: button.bounds.width, height: button.bounds.height)
         
         let scaledImage = image.scalePreservingAspectRatio(
             targetSize: targetSize
@@ -143,7 +130,7 @@ class ViewController: UIViewController {
             break
         }
     }
-        
+    
     @objc func swipeOnShareStackView(_ sender: UISwipeGestureRecognizer) {
         print("Gesture fired")
         switch sender.state {
@@ -218,7 +205,7 @@ class ViewController: UIViewController {
             self.gridView.transform = .identity
         }, completion: nil)
     }
-        
+    
     func presentShareSheet() {
         
         let image = createImageFromGrid()
