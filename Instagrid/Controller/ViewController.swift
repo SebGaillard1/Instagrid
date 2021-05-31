@@ -14,16 +14,56 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var gridView: UIView!
     
+    @IBOutlet weak var upToShare: UIStackView!
+    @IBOutlet weak var leftToShare: UIStackView!
+    
     var button: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //layoutButton3.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
-        
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panOnGridView(_:)))
         gridView.addGestureRecognizer(panGestureRecognizer)
+        
+        addSwipeGestureRecognizer()
+        
     }
+    
+    func addSwipeGestureRecognizer() {
+        
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOnShareStackView(_:)))
+        let size = view.bounds
+        
+        if size.height > size.width {
+            swipeGestureRecognizer.direction = .up
+            upToShare.addGestureRecognizer(swipeGestureRecognizer)
+        } else {
+            swipeGestureRecognizer.direction = .left
+            leftToShare.addGestureRecognizer(swipeGestureRecognizer)
+        }
+        
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOnShareStackView(_:)))
+        let size = view.bounds
+        
+        if size.height > size.width {
+            for recognizer in upToShare.gestureRecognizers ?? [] {
+                 upToShare.removeGestureRecognizer(recognizer)
+                swipeGestureRecognizer.direction = .left
+                leftToShare.addGestureRecognizer(swipeGestureRecognizer)
+             }
+        } else {
+            for recognizer in leftToShare.gestureRecognizers ?? [] {
+                 leftToShare.removeGestureRecognizer(recognizer)
+                swipeGestureRecognizer.direction = .up
+                upToShare.addGestureRecognizer(swipeGestureRecognizer)
+             }
+        }
+    }
+    
     
     @IBAction func buttonImageGridPressed(_ sender: UIButton) {
         
@@ -64,7 +104,7 @@ class ViewController: UIViewController {
     func setImageButton(button: UIButton) {
         let image = button.image(for: .selected)!
         let targetSize = CGSize(width: 80, height: 80)
-
+        
         let scaledImage = image.scalePreservingAspectRatio(
             targetSize: targetSize
         )
@@ -107,7 +147,7 @@ class ViewController: UIViewController {
         return image
     }
     
-    @objc func swipeGridView(_ sender: UIPanGestureRecognizer) {
+    @objc func panOnGridView(_ sender: UIPanGestureRecognizer) {
         
         switch sender.state {
         case .began, .changed:
@@ -137,6 +177,18 @@ class ViewController: UIViewController {
         }
     }
     
+    @objc func swipeOnShareStackView(_ sender: UISwipeGestureRecognizer) {
+        print("Gesture fired")
+        switch sender.state {
+        case .began, .changed:
+            print("Gesture fired")
+        case .cancelled, .ended:
+            presentShareSheet()
+        default:
+            break
+        }
+    }
+    
     func transformGridViewWith(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: gridView)
         let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
@@ -147,7 +199,7 @@ class ViewController: UIViewController {
         
         let screenWidth = UIScreen.main.bounds.width
         var translationTransform: CGAffineTransform
-
+        
         if direction == "up" {
             translationTransform = CGAffineTransform(translationX: 0, y: -screenWidth - gridView.bounds.height)
         } else {
@@ -219,12 +271,12 @@ extension UIImage {
             width: size.width * scaleFactor,
             height: size.height * scaleFactor
         )
-
+        
         // Draw and return the resized UIImage
         let renderer = UIGraphicsImageRenderer(
             size: scaledImageSize
         )
-
+        
         let scaledImage = renderer.image { _ in
             self.draw(in: CGRect(
                 origin: .zero,
