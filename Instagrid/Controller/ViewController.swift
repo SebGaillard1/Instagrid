@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        layoutButton3.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
+        //layoutButton3.setBackgroundImage(#imageLiteral(resourceName: "Selected"), for: .normal)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(swipeGridView(_:)))
         gridView.addGestureRecognizer(panGestureRecognizer)
