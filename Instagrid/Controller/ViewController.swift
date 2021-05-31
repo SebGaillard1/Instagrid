@@ -25,6 +25,12 @@ class ViewController: UIViewController {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panOnGridView(_:)))
         gridView.addGestureRecognizer(panGestureRecognizer)
         
+        for button in layoutSelectionButtons {
+            if button.tag == 3 {
+                setImageButton(button: button)
+            }
+        }
+        
         addSwipeGestureRecognizer()
         
     }
