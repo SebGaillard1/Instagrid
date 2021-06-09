@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     private var button: UIButton?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -145,6 +146,31 @@ class ViewController: UIViewController {
         }
     }
     
+    func presentShareSheet() {
+        
+        let image = createImageFromGrid()
+        let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        ac.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if !completed {
+                self.gridViewReturnToInitialPos()
+                return
+            }
+            self.gridViewReturnToInitialPos()
+        }
+        
+        present(ac, animated: true)
+    }
+    
+    func createImageFromGrid() -> UIImage {
+        
+        let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
+        let image = renderer.image { ctx in
+            gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
+        }
+        return image
+    }
+    
     @objc func panOnGridView(_ sender: UIPanGestureRecognizer) {
         
         switch sender.state {
@@ -155,7 +181,7 @@ class ViewController: UIViewController {
             
             if size.width > size.height { // Si on est en mode paysage
                 if sender.location(in: self.view).x < view.center.x - 50 {
-                    userLetGoOfGridView(direction: .left)
+                    userLetGoOfGridView(direction: EnumDirection.left)
                 } else {
                     UIView.animate(withDuration: 0.3) {
                         self.gridView.transform = .identity
@@ -163,7 +189,7 @@ class ViewController: UIViewController {
                 }
             } else {
                 if sender.location(in: self.view).y < view.center.y - 50 {
-                    userLetGoOfGridView(direction: .up)
+                    userLetGoOfGridView(direction: EnumDirection.up)
                 } else {
                     UIView.animate(withDuration: 0.3) {
                         self.gridView.transform = .identity
@@ -181,7 +207,7 @@ class ViewController: UIViewController {
         gridView.transform = translationTransform
     }
     
-    func userLetGoOfGridView(direction: direction) {
+    func userLetGoOfGridView(direction: EnumDirection) {
         
         let screenWidth = UIScreen.main.bounds.width
         var translationTransform: CGAffineTransform
@@ -207,35 +233,6 @@ class ViewController: UIViewController {
             self.gridView.transform = .identity
         }, completion: nil)
     }
-    
-    func presentShareSheet() {
-        
-        let image = createImageFromGrid()
-        let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        
-        ac.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-            if !completed {
-                self.gridViewReturnToInitialPos()
-                return
-            }
-            self.gridViewReturnToInitialPos()
-        }
-        
-        present(ac, animated: true)
-    }
-    
-    func createImageFromGrid() -> UIImage {
-        
-        let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
-        let image = renderer.image { ctx in
-            gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
-        }
-        return image
-    }
-}
-
-enum direction {
-    case left, up
 }
 
 //MARK: - Extensions
@@ -254,35 +251,3 @@ extension ViewController: UIImagePickerControllerDelegate & UINavigationControll
         picker.dismiss(animated: true, completion: nil)
     }
 }
-
-
-extension UIImage {
-    func scalePreservingAspectRatio(targetSize: CGSize) -> UIImage {
-        // Determine the scale factor that preserves aspect ratio
-        let widthRatio = targetSize.width / size.width
-        let heightRatio = targetSize.height / size.height
-        
-        let scaleFactor = min(widthRatio, heightRatio)
-        
-        // Compute the new image size that preserves aspect ratio
-        let scaledImageSize = CGSize(
-            width: size.width * scaleFactor,
-            height: size.height * scaleFactor
-        )
-        
-        // Draw and return the resized UIImage
-        let renderer = UIGraphicsImageRenderer(
-            size: scaledImageSize
-        )
-        
-        let scaledImage = renderer.image { _ in
-            self.draw(in: CGRect(
-                origin: .zero,
-                size: scaledImageSize
-            ))
-        }
-        
-        return scaledImage
-    }
-}
-

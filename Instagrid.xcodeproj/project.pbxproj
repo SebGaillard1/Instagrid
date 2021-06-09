@@ -15,6 +15,8 @@
 		574AC966263DB5A60048276B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 574AC964263DB5A60048276B /* LaunchScreen.storyboard */; };
 		576799202657EFA200289D57 /* ThirstySoftRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5767991F2657EFA200289D57 /* ThirstySoftRegular.otf */; };
 		576799222657EFA900289D57 /* Delm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 576799212657EFA900289D57 /* Delm-Medium.otf */; };
+		578E4CD72670BD3E00B58691 /* EnumDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E4CD62670BD3E00B58691 /* EnumDirection.swift */; };
+		578E4CDA2670BF8F00B58691 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578E4CD92670BF8F00B58691 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		574AC967263DB5A60048276B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5767991F2657EFA200289D57 /* ThirstySoftRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirstySoftRegular.otf; sourceTree = "<group>"; };
 		576799212657EFA900289D57 /* Delm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Delm-Medium.otf"; sourceTree = "<group>"; };
+		578E4CD62670BD3E00B58691 /* EnumDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumDirection.swift; sourceTree = "<group>"; };
+		578E4CD92670BF8F00B58691 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 				576799232658DD3A00289D57 /* Model */,
 				576799242658DD4000289D57 /* View */,
 				576799252658DD4700289D57 /* Controller */,
+				578E4CD82670BF4B00B58691 /* Extensions */,
 				574AC959263DB5A50048276B /* AppDelegate.swift */,
 				574AC95B263DB5A50048276B /* SceneDelegate.swift */,
 				574AC962263DB5A60048276B /* Assets.xcassets */,
@@ -77,6 +82,7 @@
 		576799232658DD3A00289D57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				578E4CDD2670C11200B58691 /* Enums */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,6 +101,22 @@
 				574AC95D263DB5A50048276B /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		578E4CD82670BF4B00B58691 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				578E4CD92670BF8F00B58691 /* UIImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		578E4CDD2670C11200B58691 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				578E4CD62670BD3E00B58691 /* EnumDirection.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +194,8 @@
 				574AC95E263DB5A50048276B /* ViewController.swift in Sources */,
 				574AC95A263DB5A50048276B /* AppDelegate.swift in Sources */,
 				574AC95C263DB5A50048276B /* SceneDelegate.swift in Sources */,
+				578E4CDA2670BF8F00B58691 /* UIImageExtension.swift in Sources */,
+				578E4CD72670BD3E00B58691 /* EnumDirection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
