@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var gridView: UIView!
     
-    @IBOutlet weak var upToShare: UIStackView!
-    @IBOutlet weak var leftToShare: UIStackView!
+    @IBOutlet weak var swipeStackView: UIStackView!
+    @IBOutlet weak var swipeLabel: UILabel!
     
     private var button: UIButton?
     
@@ -40,17 +40,19 @@ class ViewController: UIViewController {
         let size = viewSize
         
         if size.height > size.width {
-            for recognizer in leftToShare.gestureRecognizers ?? [] {
-                leftToShare.removeGestureRecognizer(recognizer)
+            for recognizer in swipeStackView.gestureRecognizers ?? [] {
+                swipeStackView.removeGestureRecognizer(recognizer)
             }
+            swipeLabel.text = "Swipe up to share"
             swipeGestureRecognizer.direction = .up
-            upToShare.addGestureRecognizer(swipeGestureRecognizer)
+            swipeStackView.addGestureRecognizer(swipeGestureRecognizer)
         } else {
-            for recognizer in upToShare.gestureRecognizers ?? [] {
-                upToShare.removeGestureRecognizer(recognizer)
+            for recognizer in swipeStackView.gestureRecognizers ?? [] {
+                swipeStackView.removeGestureRecognizer(recognizer)
             }
+            swipeLabel.text = "Swipe left to share"
             swipeGestureRecognizer.direction = .left
-            leftToShare.addGestureRecognizer(swipeGestureRecognizer)
+            swipeStackView.addGestureRecognizer(swipeGestureRecognizer)
         }
     }
     

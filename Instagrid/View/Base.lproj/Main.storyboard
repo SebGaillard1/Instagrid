@@ -33,55 +33,23 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c0S-91-CMp">
-                                <rect key="frame" x="0.0" y="338" width="30" height="220.33333333333337"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Left" translatesAutoresizingMaskIntoConstraints="NO" id="pO8-9f-f8u">
-                                        <rect key="frame" x="5.6666666666666679" y="0.0" width="19" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="XSr-YM-urN"/>
-                                            <constraint firstAttribute="width" constant="19" id="wUx-Qb-AUG"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJz-64-W1z">
-                                        <rect key="frame" x="0.0" y="19" width="30" height="201.33333333333334"/>
-                                        <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <variation key="heightClass=regular-widthClass=compact" hidden="YES"/>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B7X-2Z-rjK">
                                 <rect key="frame" x="127.00000000000001" y="213" width="160.33333333333337" height="48"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Arrow Up" translatesAutoresizingMaskIntoConstraints="NO" id="ogd-59-T9I">
                                         <rect key="frame" x="70.666666666666657" y="0.0" width="19" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="19" id="rUm-Fd-IIP"/>
-                                            <constraint firstAttribute="height" constant="14" id="u4m-OS-Qxg"/>
+                                            <constraint firstAttribute="height" constant="14" id="P98-yU-l5y"/>
+                                            <constraint firstAttribute="width" constant="19" id="et9-ly-omc"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="rUm-Fd-IIP"/>
-                                                <exclude reference="u4m-OS-Qxg"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular">
-                                            <mask key="constraints">
-                                                <include reference="rUm-Fd-IIP"/>
-                                                <include reference="u4m-OS-Qxg"/>
-                                            </mask>
-                                        </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g5-fX-Kcq">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to share" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9g5-fX-Kcq">
                                         <rect key="frame" x="0.0" y="19" width="160.33333333333334" height="29"/>
                                         <fontDescription key="fontDescription" name="Delm-Medium" family="Delm" pointSize="26"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <variation key="heightClass=compact" hidden="YES"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="3DR-Zy-FQb">
                                 <rect key="frame" x="52" y="772" width="310" height="80"/>
@@ -227,8 +195,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.71764705880000002" green="0.84313725490000002" blue="0.8980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="c0S-91-CMp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0Zp-y5-77o"/>
-                            <constraint firstItem="J7P-p8-b2a" firstAttribute="leading" secondItem="c0S-91-CMp" secondAttribute="trailing" id="6lH-7h-VUb"/>
                             <constraint firstItem="J7P-p8-b2a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7cN-hF-65g"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3DR-Zy-FQb" secondAttribute="trailing" constant="10" id="8Vj-dK-IUT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3DR-Zy-FQb" secondAttribute="trailing" constant="20" id="CE9-In-04n"/>
@@ -237,21 +203,20 @@
                             <constraint firstItem="opP-eT-BB0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O6m-Dj-kiv"/>
                             <constraint firstItem="3DR-Zy-FQb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OZV-1x-8Ix"/>
                             <constraint firstItem="J7P-p8-b2a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Pce-7O-Ez3"/>
-                            <constraint firstItem="J7P-p8-b2a" firstAttribute="leading" secondItem="c0S-91-CMp" secondAttribute="trailing" id="QKn-35-TQ9"/>
                             <constraint firstItem="J7P-p8-b2a" firstAttribute="top" secondItem="opP-eT-BB0" secondAttribute="bottom" constant="10" id="UQR-UI-YIC"/>
                             <constraint firstItem="J7P-p8-b2a" firstAttribute="top" secondItem="B7X-2Z-rjK" secondAttribute="bottom" constant="10" id="W0v-1d-Iha"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J7P-p8-b2a" secondAttribute="bottom" constant="10" id="aZI-YA-sZ9"/>
                             <constraint firstItem="J7P-p8-b2a" firstAttribute="top" secondItem="opP-eT-BB0" secondAttribute="bottom" constant="10" id="bIr-Sn-8sy"/>
                             <constraint firstItem="J7P-p8-b2a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e5D-hT-cbw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="J7P-p8-b2a" secondAttribute="bottom" constant="10" id="foY-78-G0G"/>
+                            <constraint firstItem="B7X-2Z-rjK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hiK-Ah-l1t"/>
                             <constraint firstItem="B7X-2Z-rjK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hpX-Rk-3Qv"/>
                             <constraint firstItem="B7X-2Z-rjK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jG1-rR-shU"/>
                             <constraint firstItem="3DR-Zy-FQb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="l4A-Pe-sDq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3DR-Zy-FQb" secondAttribute="bottom" constant="10" id="lga-In-L0F"/>
-                            <constraint firstItem="c0S-91-CMp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="m56-cG-rXV"/>
+                            <constraint firstItem="J7P-p8-b2a" firstAttribute="leading" secondItem="B7X-2Z-rjK" secondAttribute="trailing" id="oX3-xs-j6j"/>
                             <constraint firstItem="J7P-p8-b2a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p0f-0t-Qxg"/>
                             <constraint firstItem="3DR-Zy-FQb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qeP-2J-vJ9"/>
-                            <constraint firstItem="3DR-Zy-FQb" firstAttribute="top" secondItem="c0S-91-CMp" secondAttribute="bottom" id="sqL-oO-1bV"/>
                             <constraint firstItem="opP-eT-BB0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="yhc-5a-HW5"/>
                         </constraints>
                         <variation key="default">
@@ -261,16 +226,17 @@
                                 <exclude reference="aZI-YA-sZ9"/>
                                 <exclude reference="foY-78-G0G"/>
                                 <exclude reference="lga-In-L0F"/>
+                                <exclude reference="hiK-Ah-l1t"/>
                                 <exclude reference="hpX-Rk-3Qv"/>
                                 <exclude reference="7cN-hF-65g"/>
                                 <exclude reference="UQR-UI-YIC"/>
                                 <exclude reference="bIr-Sn-8sy"/>
+                                <exclude reference="oX3-xs-j6j"/>
                                 <exclude reference="p0f-0t-Qxg"/>
                                 <exclude reference="EZF-Z3-RhC"/>
                                 <exclude reference="OZV-1x-8Ix"/>
                                 <exclude reference="l4A-Pe-sDq"/>
                                 <exclude reference="qeP-2J-vJ9"/>
-                                <exclude reference="sqL-oO-1bV"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
@@ -279,18 +245,19 @@
                                 <exclude reference="Mfc-qH-UB3"/>
                                 <exclude reference="aZI-YA-sZ9"/>
                                 <include reference="foY-78-G0G"/>
+                                <include reference="hiK-Ah-l1t"/>
                                 <include reference="hpX-Rk-3Qv"/>
+                                <exclude reference="jG1-rR-shU"/>
                                 <exclude reference="7cN-hF-65g"/>
                                 <exclude reference="Pce-7O-Ez3"/>
-                                <exclude reference="QKn-35-TQ9"/>
                                 <exclude reference="UQR-UI-YIC"/>
                                 <exclude reference="W0v-1d-Iha"/>
                                 <include reference="bIr-Sn-8sy"/>
                                 <exclude reference="e5D-hT-cbw"/>
+                                <include reference="oX3-xs-j6j"/>
                                 <include reference="p0f-0t-Qxg"/>
                                 <exclude reference="EZF-Z3-RhC"/>
                                 <include reference="OZV-1x-8Ix"/>
-                                <exclude reference="sqL-oO-1bV"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -304,8 +271,8 @@
                     </view>
                     <connections>
                         <outlet property="gridView" destination="J7P-p8-b2a" id="sSh-wS-SjP"/>
-                        <outlet property="leftToShare" destination="c0S-91-CMp" id="9ry-wA-asm"/>
-                        <outlet property="upToShare" destination="B7X-2Z-rjK" id="a0b-Rv-DWW"/>
+                        <outlet property="swipeLabel" destination="9g5-fX-Kcq" id="75y-ZG-2NB"/>
+                        <outlet property="swipeStackView" destination="B7X-2Z-rjK" id="a0b-Rv-DWW"/>
                         <outletCollection property="gridButtons" destination="QUA-VK-r4N" collectionClass="NSMutableArray" id="O5C-OT-3e2"/>
                         <outletCollection property="gridButtons" destination="BZW-3p-Dh5" collectionClass="NSMutableArray" id="zD9-AE-jvt"/>
                         <outletCollection property="gridButtons" destination="a8z-Sp-rkP" collectionClass="NSMutableArray" id="IuC-nu-KG5"/>
@@ -321,7 +288,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Arrow Left" width="3.3333332538604736" height="4.6666665077209473"/>
         <image name="Arrow Up" width="4.6666665077209473" height="3.3333332538604736"/>
         <image name="Layout 1" width="26.666666030883789" height="26.666666030883789"/>
         <image name="Layout 2" width="26.666666030883789" height="26.666666030883789"/>
