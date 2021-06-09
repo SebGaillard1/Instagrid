@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var upToShare: UIStackView!
     @IBOutlet weak var leftToShare: UIStackView!
     
-    var button: UIButton?
+    private var button: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
