@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Outlets
     @IBOutlet var layoutSelectionButtons: [UIButton]!
     @IBOutlet var gridButtons: [UIButton]!
     
@@ -17,9 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var swipeStackView: UIStackView!
     @IBOutlet weak var swipeLabel: UILabel!
     
+    // MARK: - Properties
     private var button: UIButton?
     
-    
+    // MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
         
         for button in layoutSelectionButtons {
             if button.tag == 3 {
-                setImageButton(button: button)
+                setImageToButton(button: button)
             }
         }
         
@@ -36,33 +38,34 @@ class ViewController: UIViewController {
     }
     
     func addSwipeGestureRecognizer(viewSize: CGSize) {
-        
         let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOnShareStackView(_:)))
         let size = viewSize
         
+        for recognizer in swipeStackView.gestureRecognizers ?? [] {
+            swipeStackView.removeGestureRecognizer(recognizer)
+        }
+        
         if size.height > size.width {
-            for recognizer in swipeStackView.gestureRecognizers ?? [] {
-                swipeStackView.removeGestureRecognizer(recognizer)
-            }
-            swipeLabel.text = "Swipe up to share"
             swipeGestureRecognizer.direction = .up
             swipeStackView.addGestureRecognizer(swipeGestureRecognizer)
         } else {
-            for recognizer in swipeStackView.gestureRecognizers ?? [] {
-                swipeStackView.removeGestureRecognizer(recognizer)
-            }
-            swipeLabel.text = "Swipe left to share"
             swipeGestureRecognizer.direction = .left
             swipeStackView.addGestureRecognizer(swipeGestureRecognizer)
         }
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         addSwipeGestureRecognizer(viewSize: size)
+        
+        if size.height > size.width {
+            swipeLabel.text = "Swipe up to share"
+        } else {
+            swipeLabel.text = "Swipe left to share"
+        }
     }
     
     @IBAction func buttonImageGridPressed(_ sender: UIButton) {
-        
         let pickerController = UIImagePickerController()
         pickerController.sourceType = .photoLibrary
         pickerController.delegate = self
@@ -72,14 +75,11 @@ class ViewController: UIViewController {
         button = sender
     }
     
-    // Clear all other button background
-    // Call function changeLayout with appropriate parameter
     @IBAction func layoutButtonPressed(_ sender: UIButton) {
-        
         for button in layoutSelectionButtons {
             if sender.tag == button.tag {
                 button.isSelected = true
-                setImageButton(button: button)
+                setImageToButton(button: button)
             } else {
                 button.isSelected = false
             }
@@ -97,10 +97,9 @@ class ViewController: UIViewController {
         }
     }
     
-    func setImageButton(button: UIButton) {
+    func setImageToButton(button: UIButton) {
         let image = button.image(for: .selected)!
         let targetSize = CGSize(width: button.bounds.width, height: button.bounds.height)
-        
         let scaledImage = image.scalePreservingAspectRatio(
             targetSize: targetSize
         )
@@ -135,11 +134,8 @@ class ViewController: UIViewController {
     }
     
     @objc func swipeOnShareStackView(_ sender: UISwipeGestureRecognizer) {
-        print("Gesture fired")
         switch sender.state {
-        case .began, .changed:
-            print("Gesture fired")
-        case .cancelled, .ended:
+        case .ended:
             presentShareSheet()
         default:
             break
@@ -147,23 +143,21 @@ class ViewController: UIViewController {
     }
     
     func presentShareSheet() {
-        
         let image = createImageFromGrid()
         let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         ac.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
             if !completed {
-                self.gridViewReturnToInitialPos()
+                self.gridViewReturnToInitialPos() // Pour faire revenir la gridView si le partage est annulé
                 return
             }
-            self.gridViewReturnToInitialPos()
+            self.gridViewReturnToInitialPos() // Nécessaire sinon la gridView ne reviens pas après partage
         }
         
         present(ac, animated: true)
     }
     
     func createImageFromGrid() -> UIImage {
-        
         let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
         let image = renderer.image { ctx in
             gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
@@ -172,7 +166,6 @@ class ViewController: UIViewController {
     }
     
     @objc func panOnGridView(_ sender: UIPanGestureRecognizer) {
-        
         switch sender.state {
         case .began, .changed:
             transformGridViewWith(gesture: sender)
@@ -208,7 +201,6 @@ class ViewController: UIViewController {
     }
     
     func userLetGoOfGridView(direction: EnumDirection) {
-        
         let screenWidth = UIScreen.main.bounds.width
         var translationTransform: CGAffineTransform
         
@@ -228,7 +220,6 @@ class ViewController: UIViewController {
     }
     
     func gridViewReturnToInitialPos() {
-        
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
             self.gridView.transform = .identity
         }, completion: nil)
@@ -240,7 +231,6 @@ class ViewController: UIViewController {
 extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         guard let image = info[.editedImage] as? UIImage else { return }
         button?.setBackgroundImage(image, for: .normal)
         button?.setImage(nil, for: .normal)
