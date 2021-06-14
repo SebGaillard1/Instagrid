@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // Present le UIImagePickerController lors d'un appui sur un bouton
+    // Présente le UIImagePickerController lors d'un appui sur un bouton
     @IBAction func buttonImageGridPressed(_ sender: UIButton) {
         let pickerController = UIImagePickerController()
         pickerController.sourceType = .photoLibrary
