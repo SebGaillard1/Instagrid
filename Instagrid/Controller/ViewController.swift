@@ -37,7 +37,8 @@ class ViewController: UIViewController {
         addSwipeGestureRecognizer(viewSize: view.bounds.size)
     }
     
-    func addSwipeGestureRecognizer(viewSize: CGSize) {
+    // Ajoute le swipeGestureRecognizer à la swipeStackView
+    private func addSwipeGestureRecognizer(viewSize: CGSize) {
         let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeOnShareStackView(_:)))
         let size = viewSize
         
@@ -54,6 +55,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Appelée juste avant que l'écran passe de portrait <-> paysage
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         addSwipeGestureRecognizer(viewSize: size)
@@ -65,6 +67,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Present le UIImagePickerController lors d'un appui sur un bouton
     @IBAction func buttonImageGridPressed(_ sender: UIButton) {
         let pickerController = UIImagePickerController()
         pickerController.sourceType = .photoLibrary
@@ -75,38 +78,22 @@ class ViewController: UIViewController {
         button = sender
     }
     
+    // Quand user appuie sur un bouton pour choisir un layout : Changement du bouton selectionné et de son background et
+    // appel de la méthode qui change le layout
     @IBAction func layoutButtonPressed(_ sender: UIButton) {
         for button in layoutSelectionButtons {
             if sender.tag == button.tag {
                 button.isSelected = true
                 setImageToButton(button: button)
+                changeLayout(choice: sender.tag)
             } else {
                 button.isSelected = false
             }
         }
-        
-        switch sender.tag {
-        case 1:
-            changeLayout(choice: 1)
-        case 2:
-            changeLayout(choice: 2)
-        case 3:
-            changeLayout(choice: 3)
-        default:
-            break
-        }
     }
     
-    func setImageToButton(button: UIButton) {
-        let image = button.image(for: .selected)!
-        let targetSize = CGSize(width: button.bounds.width, height: button.bounds.height)
-        let scaledImage = image.scalePreservingAspectRatio(
-            targetSize: targetSize
-        )
-        button.setImage(scaledImage, for: .selected)
-    }
-    
-    func changeLayout(choice: Int) {
+    // Cette méthode change la disposition de la gridView en cachant ou non des boutons
+    private func changeLayout(choice: Int) {
         switch choice {
         case 1:
             for button in gridButtons {
@@ -133,6 +120,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // Méthode appelée par le SwipeGestureRecognizer. Elle appelle la méthode qui affiche la shareSheet
     @objc func swipeOnShareStackView(_ sender: UISwipeGestureRecognizer) {
         switch sender.state {
         case .ended:
@@ -142,22 +130,21 @@ class ViewController: UIViewController {
         }
     }
     
-    func presentShareSheet() {
+    // Cette méthode appelle la méthode qui crée l'image de la création photo de l'utilisateur.
+    // Elle initialise une shareSheet afin de partager l'image qui vient d'être créée
+    private func presentShareSheet() {
         let image = createImageFromGrid()
         let ac = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         
         ac.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
-            if !completed {
-                self.gridViewReturnToInitialPos() // Pour faire revenir la gridView si le partage est annulé
-                return
-            }
             self.gridViewReturnToInitialPos() // Nécessaire sinon la gridView ne reviens pas après partage
         }
         
         present(ac, animated: true)
     }
     
-    func createImageFromGrid() -> UIImage {
+    // Cette méthode permet de générer une UIImage de la gridView et de son contenu
+    private func createImageFromGrid() -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: gridView.bounds.size)
         let image = renderer.image { ctx in
             gridView.drawHierarchy(in: gridView.bounds, afterScreenUpdates: true)
@@ -165,6 +152,9 @@ class ViewController: UIViewController {
         return image
     }
     
+    // Cette méthode est appelée par le PanGestureRecognizer.
+    // Elle permet à la gridView de se déplacer avec le doigt de l'utilisateur en appelant transformGridView() a chaque chanhgement de pos
+    // Elle appelle la méthode userLetGoOfGrid() si le swipe est valide. Sinon la gridView est recentrée
     @objc func panOnGridView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began, .changed:
@@ -194,13 +184,16 @@ class ViewController: UIViewController {
         }
     }
     
-    func transformGridViewWith(gesture: UIPanGestureRecognizer) {
+    // Applique une transformation à la gridView afin de suivre le doigt de l'utilisateur
+    private func transformGridViewWith(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: gridView)
         let translationTransform = CGAffineTransform(translationX: translation.x, y: translation.y)
         gridView.transform = translationTransform
     }
     
-    func userLetGoOfGridView(direction: EnumDirection) {
+    // Méthode appelée quand l'utilistateur lache la gridView dans la bonne direction
+    // Anime le départ de la gridView et présente la shareSheet
+    private func userLetGoOfGridView(direction: EnumDirection) {
         let screenWidth = UIScreen.main.bounds.width
         var translationTransform: CGAffineTransform
         
@@ -219,10 +212,21 @@ class ViewController: UIViewController {
         }
     }
     
-    func gridViewReturnToInitialPos() {
+    // Cette méthode permet le retour à la position initiale de la gridView avec une animation
+    private func gridViewReturnToInitialPos() {
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
             self.gridView.transform = .identity
         }, completion: nil)
+    }
+    
+    // Redimensionne la background image du bouton à la dimension du bouton
+    private func setImageToButton(button: UIButton) {
+        let image = button.image(for: .selected)!
+        let targetSize = CGSize(width: button.bounds.width, height: button.bounds.height)
+        let scaledImage = image.scalePreservingAspectRatio(
+            targetSize: targetSize
+        )
+        button.setImage(scaledImage, for: .selected)
     }
 }
 
@@ -230,6 +234,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
+    // Appelée quand l'utilisateur a choisi une image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         button?.setBackgroundImage(image, for: .normal)
@@ -237,6 +242,7 @@ extension ViewController: UIImagePickerControllerDelegate & UINavigationControll
         picker.dismiss(animated: true, completion: nil)
     }
     
+    // Appelée quand l'utilisateur annule sa sélection d'image.
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
