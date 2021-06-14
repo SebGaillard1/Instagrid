@@ -153,7 +153,7 @@ class ViewController: UIViewController {
     }
     
     // Cette méthode est appelée par le PanGestureRecognizer.
-    // Elle permet à la gridView de se déplacer avec le doigt de l'utilisateur en appelant transformGridView() a chaque chanhgement de pos
+    // Elle permet à la gridView de se déplacer avec le doigt de l'utilisateur en appelant transformGridView() à chaque changement de pos
     // Elle appelle la méthode userLetGoOfGrid() si le swipe est valide. Sinon la gridView est recentrée
     @objc func panOnGridView(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
